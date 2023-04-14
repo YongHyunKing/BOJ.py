@@ -7,6 +7,7 @@ from functools import cmp_to_key
 
 def dfs(idx,tmp):
     global cnt
+    print(tmp)
     if len(tmp)!=0 and sum(tmp) == a:
         cnt+=1
     

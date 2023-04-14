@@ -7,24 +7,32 @@ from queue import Queue
 if __name__ == "__main__":
     s = open('input.txt', 'rt')
     n = int(s.readline())
-    stack = list(map(int,s.readline().split()))
-    ans = []
-    
-    # while len(stack)!=0:
-    #     num = stack.pop()
-    #     cnt = 1
-    #     idx = 0
-    #     while len(stack)!=0:
-    #         if num >= stack[len(stack)-1]:
-    #             stack.pop()
-    #             cnt+=1
-    #         else : 
-    #             idx = len(stack)
-    #             break
+    li = list(map(int,s.readline().split()))
+    ans = [0 for __ in range(n)]
+    stack1,stack2 = [], []
+    for i in range(len(li)):
+        stack1.append([li[i],i])
         
-    #     for i in range(cnt):
-    #         ans.append(idx)
+    while len(stack1)!=0:
+        if len(stack2)==0:
+            stack2.append(stack1.pop())
+        else:
+            while len(stack2)!=0:
+                if stack2[-1][0]<stack1[-1][0]:
+                    ans[stack2[-1][1]]=stack1[-1][1]+1
+                    stack2.pop()
+                else: break
+
+            stack2.append(stack1.pop())
             
-    # for i in range(len(ans)-1,-1,-1):
-    #     print(ans[i],end=" ")
+    while len(stack2)!=0:
+        ans[stack2[-1][1]]=0
+        stack2.pop()
+                
+    for i in ans:
+        print(i,end=" ")
+        
+
+    
+    
         
