@@ -5,7 +5,7 @@ from typing import Sequence, MutableSequence
 
 
 if __name__ == "__main__":
-    s = open('input.txt', 'rt')
+    #s = open('input.txt', 'rt')
     n,m = map(int,s.readline().split())
     arr = list(map(int,s.readline().split()))
     left,right = 0, 1000000000
