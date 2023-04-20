@@ -9,30 +9,11 @@ if __name__ == "__main__":
     n = int(s.readline())
     li = list(map(int,s.readline().split()))
     ans = [0 for __ in range(n)]
-    stack1,stack2 = [], []
+    stack = []
+    
     for i in range(len(li)):
-        stack1.append([li[i],i])
+        while stack and stack[-1][0]<li[i]: stack.pop()
+        if stack : ans[i] = stack[-1][1]
+        stack.append([li[i],i+1])
         
-    while len(stack1)!=0:
-        if len(stack2)==0:
-            stack2.append(stack1.pop())
-        else:
-            while len(stack2)!=0:
-                if stack2[-1][0]<stack1[-1][0]:
-                    ans[stack2[-1][1]]=stack1[-1][1]+1
-                    stack2.pop()
-                else: break
-
-            stack2.append(stack1.pop())
-            
-    while len(stack2)!=0:
-        ans[stack2[-1][1]]=0
-        stack2.pop()
-                
-    for i in ans:
-        print(i,end=" ")
-        
-
-    
-    
-        
+    print(*ans)

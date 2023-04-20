@@ -28,7 +28,6 @@ def recur(a: Sequence,left : int, right : int)->int:
     l_side = recur(a,left,mid)
     r_side = recur(a,mid+1,right)
     both = find_max(a,left,mid,right)
-    #print(f'left : {left}, right : {right}, both : {both}')
     
     return max(l_side,r_side,both)
 
