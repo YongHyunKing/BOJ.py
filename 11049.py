@@ -22,4 +22,3 @@ if __name__ == "__main__":
                     dp[y][x] = min(dp[y][x],dp[y][k]+dp[k+1][x]+arr[y][0]*arr[k][1]*arr[x][1])
                     
     print(dp[0][n-1])
-
