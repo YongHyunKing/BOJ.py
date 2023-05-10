@@ -4,6 +4,7 @@
 # Unignore all with extensions
 !*.*
 
+t.cpp
 t.py
 sort.py
 input_template.py
