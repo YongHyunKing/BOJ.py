@@ -1,6 +1,14 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
 t.py
 sort.py
 input_template.py
 .vscode
 input.txt
+
+.DS_Store
  
